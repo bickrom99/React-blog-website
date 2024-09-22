@@ -7,3 +7,19 @@
 .active {
   @apply underline text-orange-500 underline-offset-4;
 }
+
+.pagination {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.pagination li {
+  list-style: none;
+  box-shadow: 0 0 2px 0px rgb(96, 96, 96);
+  padding: 0 10px;
+  border-radius: 5px;
+}
+.activePagination {
+  background: rgb(232, 158, 21);
+}
