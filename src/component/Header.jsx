@@ -32,7 +32,11 @@ const Header = () => {
                 <ul className="md:flex gap-12 text-lg hidden">
                     {navItems.map(({ path, link }, index) => (
                         <li key={index} className="text-white">
-                            <NavLink to={path} >
+                            <NavLink to={path}
+                            className={({ isActive, isPending }) =>
+                                isActive ? "active": isPending? "pending": ""
+                              }
+                            >
                                 {link}
                             </NavLink>
                         </li>
@@ -63,7 +67,7 @@ const Header = () => {
                 <ul className={`md:hidden gap-12 text-lg block space-y-4 px-4 py-6 mt-14 bg-white ${ isMenuOpen ? "fixed top-0 left-0 w-full transition-all duration-150 ease-out" : "hidden"}`}>
                     {navItems.map(({ path, link }, index) => (
                         <li key={index} className="text-black">
-                            <NavLink to={path} >
+                            <NavLink onClick={toggleMenu} to={path} >
                                 {link}
                             </NavLink>
                         </li>
