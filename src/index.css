@@ -23,3 +23,7 @@
 .activePagination {
   background: rgb(232, 158, 21);
 }
+/* select category section button */
+.active-category-btn {
+  color: #fca70aed;
+}

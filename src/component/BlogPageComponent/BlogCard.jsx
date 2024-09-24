@@ -10,7 +10,7 @@ const BlogCard = ({ blogs, pageSize, currentPage, selectCategory }) => {
     return (
         <div className='w-[90%] m-auto grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8'>
             {
-                filteredBlog.map((blog) => <Link key={blog.id} className='p-5 shadow'>
+                filteredBlog.map((blog) => <Link key={blog.id} className='p-5 shadow-md'>
                     {/* image */}
                     <div>
                         <img src={blog.image} alt="" className='w-full'/>

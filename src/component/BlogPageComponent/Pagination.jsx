@@ -1,5 +1,9 @@
-const Pagination = ({ onPageChange, currentPage, blogs, pageSize }) => {
+/* eslint-disable react/prop-types */
+
+const Pagination = ({onPageChange, currentPage, blogs, pageSize }) => {
+
     const totalPages = Math.ceil(blogs.length / pageSize);
+    
     const renderPagenationLinks = () => {
         return Array.from({length: totalPages}, (_, i) => i+1).map((pageNumber) => (
             <li className={pageNumber === currentPage ? "activePagination" : ""} key={pageNumber}>
