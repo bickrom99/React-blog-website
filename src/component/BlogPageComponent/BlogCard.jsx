@@ -8,7 +8,7 @@ const BlogCard = ({ blogs, pageSize, currentPage, selectCategory }) => {
     .slice((currentPage - 1) * pageSize, currentPage * pageSize)
 
     return (
-        <div className='w-[90%] m-auto grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8'>
+        <div className='m-auto grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8'>
             {
                 filteredBlog.map((blog) => <Link key={blog.id} className='p-5 shadow-md'>
                     {/* image */}

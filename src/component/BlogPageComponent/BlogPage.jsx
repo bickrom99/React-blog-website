@@ -10,26 +10,32 @@ const BlogPage = () => {
     const pageSize = 12;
     const [selectCategory, setSelectCategory] = useState(null);
     const [activeCategory, setActiveCategory] = useState(null);
+    const [loading, setLoading] = useState(true); // Loader state
 
     useEffect(() => {
         async function fetchBlogs() {
-            // Fix URL string interpolation by using backticks
+            setLoading(true); // Show loader while fetching
             let url = `/public/api/blogData.json?page=${currentPage}&limit=${pageSize}`;
 
-            // Filter by category
             if (selectCategory) {
                 url += `&category=${selectCategory}`;
             }
 
+            try {
                 const response = await fetch(url);
                 const data = await response.json();
                 setBlogs(data);
+            } catch (error) {
+                console.error('Error fetching blogs:', error);
+            } finally {
+                setLoading(false); // Hide loader after data is fetched
+            }
         }
 
         fetchBlogs();
     }, [currentPage, pageSize, selectCategory]);
 
-    // Page change button handler
+    // Page change handler
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
     }
@@ -38,7 +44,7 @@ const BlogPage = () => {
     const handleCategoryChange = (category) => {
         setSelectCategory(category);
         setCurrentPage(1);
-        setActiveCategory(category); // Fix the typo here
+        setActiveCategory(category);
     }
 
     return (
@@ -49,13 +55,19 @@ const BlogPage = () => {
             </div>
 
             {/* Blog Card section */}
-            <div className='flex lg:flex-row w-[90%] m-auto '>
-                <BlogCard className='w-7/10' blogs={blogs} currentPage={currentPage} pageSize={pageSize} selectCategory={selectCategory} />
+            <div className='w-[90%] m-auto flex flex-col lg:flex-row gap-12 '>
+                {loading ? ( // Show loader while loading
+                    <p>Loading...</p>
+                ) : (
+                    <BlogCard blogs={blogs} currentPage={currentPage} pageSize={pageSize} selectCategory={selectCategory} />
+                )}
                 {/* SideBar component */}
-                <SideBar className='w-3/10'/>
+                <div>
+                    <SideBar />
+                </div>
             </div>
-            
-            {/* Blog Page Pagination */}
+
+            {/* Pagination */}
             <div>
                 <Pagination onPageChange={handlePageChange} currentPage={currentPage} blogs={blogs} pageSize={pageSize} />
             </div>

@@ -8,6 +8,7 @@ const Blogs = () => {
         text-white text-center'>
             <h2 className='text-center lg:text-5xl font-bold leading-snug mb-5'>Blog Page</h2>
             </div>
+            {/* Blog Page Here */}
             <BlogPage/>
         </div>
     );
