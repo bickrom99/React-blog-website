@@ -45,9 +45,9 @@ const Header = () => {
 
                 {/* Social icon -> font-awesome icon6 */}
                 <div className="text-white md:flex gap-4 items-center hidden">
-                    <a href="/" className="hover:text-orange-500 text-lg"><FaFacebook/></a>
-                    <a href="/" className="hover:text-orange-500 text-lg"><FaDribbble/></a>
-                    <a href="/" className="hover:text-orange-500 text-lg"><FaTwitter/></a>
+                    <a href="https://www.facebook.com/bickrom99/" className="hover:text-orange-500 text-lg"><FaFacebook/></a>
+                    <a href="https://bickrom99.netlify.app/" className="hover:text-orange-500 text-lg"><FaDribbble/></a>
+                    <a href="https://x.com/bickrom99" className="hover:text-orange-500 text-lg"><FaTwitter/></a>
                 {/* login button */}
                     <button className="bg-orange-500 px-6 py-2 rounded hover:bg-white hover:text-orange-500">Log In</button>
                     
