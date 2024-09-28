@@ -15,7 +15,7 @@ const BlogPage = () => {
     useEffect(() => {
         async function fetchBlogs() {
             setLoading(true); // Show loader while fetching
-            let url = `/public/api/blogData.json?page=${currentPage}&limit=${pageSize}`;
+            let url = `/api/blogData.json?page=${currentPage}&limit=${pageSize}`;
 
             if (selectCategory) {
                 url += `&category=${selectCategory}`;
