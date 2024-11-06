@@ -1,7 +1,7 @@
 
 import {useState} from 'react'
 import { NavLink } from 'react-router-dom';
-// react item
+// react font-awesome icon
 import { FaBars,FaXmark, FaDribbble, FaFacebook, FaTwitter } from "react-icons/fa6";
 
 const Header = () => {
@@ -35,7 +35,7 @@ const Header = () => {
                             <NavLink to={path}
                             className={({ isActive, isPending }) =>
                                 isActive ? "active": isPending? "pending": ""
-                              }
+                            }
                             >
                                 {link}
                             </NavLink>
